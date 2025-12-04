@@ -2,7 +2,7 @@
 
 A smart, AI-powered web application that helps gardeners and farmers diagnose plant diseases through image and text-based analysis.
 
-![Plant Doc Screenshot](D:\Infosys Springboard Internship\Disease_Detection\frontend\Screenshot 2025-10-09 213110.png)
+![Plant Doc Screenshot](https://github.com/alokrj01/ai-plant-doc/blob/main/frontend/Screenshot%202025-10-09%20213110.png)
 
 ---
 
