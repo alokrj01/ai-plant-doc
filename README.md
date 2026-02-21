@@ -56,8 +56,8 @@ Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
 Make sure you have the following installed:
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- [Python](https://www.python.org/downloads/) (v3.8 or higher)
+- [Node.js](https://nodejs.org/) (v18+ or higher)
+- [Python](https://www.python.org/downloads/) (v3.10+ or higher)
 - Git
 
 ### 📥 Model Setup (Crucial)
@@ -78,12 +78,14 @@ backend/
 │   ├── cnn_model.pth    <-- Place the downloaded image model here
 │   └── best_model_text/ <-- Place the text model files inside this folder
 └── main.py
+```
+</details>
 
 ### Installation
 
 1. Clone the Repository
 
-````bash
+```bash
 git clone [https://github.com/alokrj01/AI_Plant_Doc_Bot](https://github.com/alokrj01/AI_Plant_Doc_Bot)
 cd AI_Plant_Doc_Bot
 ```
@@ -101,6 +103,6 @@ npm install
 npm run dev
 ```
 <div align="center">
-<p>Made with ❤️ by <a href="https://www.google.com/search?q=https://github.com/alokrj01">Alok Ranjan</a></p>
+<p>Made with ❤️ by <a href="https://github.com/alokrj01">Alok Ranjan</a></p>
 </div>
 

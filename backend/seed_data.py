@@ -4,11 +4,6 @@ from database import SessionLocal, engine, Base
 from models import Disease
 import json
 
-#for create table
-Base.metadata.create_all(bind=engine)
-
-db = SessionLocal()
-
 # All Data
 disease_data = {
   #Pepper Diseases
@@ -261,25 +256,46 @@ disease_data = {
   }
 }
 
-def seed_db():
-    #Check disease data to prevent duplication
-    if db.query(Disease).first():
-        print("Database already contains data.")
-        return
 
-    print("Seeding database...")
-    for key, value in disease_data.items():
-        new_disease = Disease(
-            class_name=key,
-            disease_name=value["disease"],
-            severity=value["severity"],
-            description=value["description"],
-            treatment=value["treatment"] # Object to JSON
-        )
-        db.add(new_disease)
+def seed_db():
+    """
+    Handles the database connection lifecycle, schema creation, 
+    and initial data seeding.
+    """
+    # 1. Create tables if they don't exist
+    Base.metadata.create_all(bind=engine)
+
+    # 2. Open a session
+    db = SessionLocal()
+
+    try:
+        # Check to prevent duplication
+        if db.query(Disease).first():
+            print("Database already contains data. Skipping seed.")
+            return
+
+        print("Seeding database...")
+        for key, value in disease_data.items():
+            new_disease = Disease(
+                class_name=key,
+                disease_name=value["disease"],
+                severity=value["severity"],
+                description=value["description"],
+                treatment=value["treatment"]  # SQLAlchemy handles dict to JSON if using JSON type
+            )
+            db.add(new_disease)
+        
+        db.commit()
+        print("Database populated successfully!")
+
+    except Exception as e:
+        print(f"An error occurred during seeding: {e}")
+        db.rollback()
     
-    db.commit()
-    print("Database populated successfully!")
+    finally:
+        # 3. Always close the connection, even if an error occurs
+        db.close()
+        print("Database session closed.")
 
 if __name__ == "__main__":
     seed_db()

@@ -74,7 +74,10 @@ idx_to_class = {0: 'Pepper__bell___Bacterial_spot',
 @app.post("/image-prediction")
 def image_predict(file: UploadFile = File(...), db: Session = Depends(get_db)):
 
-  image = Image.open(file.file).convert("RGB")
+  try:
+    image = Image.open(file.file).convert("RGB")
+  except Exception as e:
+    raise HTTPException(status_code=400, detail=f"Invalid image file: {str(e)}")
   img_tensor = image_transform(image).unsqueeze(0).to(device)
 
   with torch.inference_mode():
@@ -185,7 +188,7 @@ def predict_text(data: TextInput, db: Session = Depends(get_db)):
           "treatment": db_info.treatment
         })
   else:
-      response["info"] = "Database details not found for: {db_search_label}"
+      response["info"] = f"Database details not found for: {db_search_label}"
 
   return response 
 
