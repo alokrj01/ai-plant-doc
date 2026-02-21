@@ -1,22 +1,33 @@
 import React from "react";
 
-// Badge component
-export const Badge = ({ children, color = "gray", className = "" }) => {
-  const colors = {
-    gray: "bg-gray-200 text-gray-800",
-    red: "bg-red-200 text-red-800",
-    green: "bg-green-200 text-green-800",
-    blue: "bg-blue-200 text-blue-800",
-    yellow: "bg-yellow-200 text-yellow-800",
+export const Badge = ({ children, variant = "default", className = "", ...props }) => {
+  
+  const variants = {
+    default: "bg-gray-100 text-gray-800 border-gray-200",
+    primary: "bg-green-50 text-green-700 border-green-200/60",
+    destructive: "bg-red-50 text-red-700 border-red-200/60",
+    success: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
+    warning: "bg-amber-50 text-amber-700 border-amber-200/60",
+    blue: "bg-blue-50 text-blue-700 border-blue-200/60",
   };
 
-  const colorClasses = colors[color] || colors.gray;
+  
+  const colorMap = {
+    gray: "default",
+    red: "destructive",
+    green: "success",
+    blue: "blue",
+    yellow: "warning",
+  };
+
+  const selectedVariant = variants[variants[variant] ? variant : colorMap[variant]] || variants.default;
 
   return (
-    <span
-      className={`inline-block px-2 py-1 text-xs font-semibold rounded-full ${colorClasses} ${className}`}
+    <div
+      className={`inline-flex items-center justify-center px-2.5 py-0.5 text-xs font-semibold tracking-wide rounded-full border transition-colors focus:outline-none ${selectedVariant} ${className}`}
+      {...props}
     >
       {children}
-    </span>
+    </div>
   );
 };

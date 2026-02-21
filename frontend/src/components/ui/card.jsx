@@ -1,47 +1,57 @@
 import React from "react";
 
-// Card container
-export const Card = ({ children, className = "" }) => {
+// 1. Main Card Container (Glassmorphism & Soft Shadow)
+export const Card = ({ children, className = "", ...props }) => {
   return (
     <div
-      className={`bg-white rounded-lg shadow-md border border-gray-200 p-4 ${className}`}
+      className={`bg-white/95 backdrop-blur-md rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/80 overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] ${className}`}
+      {...props}
     >
       {children}
     </div>
   );
 };
 
-// Card header wrapper
-export const CardHeader = ({ children, className = "" }) => {
+// 2. Card Header (Proper Spacing & Flexbox)
+export const CardHeader = ({ children, className = "", ...props }) => {
   return (
-    <div className={`mb-3 ${className}`}>
+    <div className={`flex flex-col space-y-1.5 p-6 md:p-8 pb-4 ${className}`} {...props}>
       {children}
     </div>
   );
 };
 
-// Card title
-export const CardTitle = ({ children, className = "" }) => {
+// 3. Card Title (Bold & Tight Typography)
+export const CardTitle = ({ children, className = "", ...props }) => {
   return (
-    <h2 className={`text-xl font-semibold text-gray-900 ${className}`}>
+    <h3 className={`text-2xl font-bold tracking-tight text-gray-900 leading-none ${className}`} {...props}>
       {children}
-    </h2>
+    </h3>
   );
 };
 
-// Card description
-export const CardDescription = ({ children, className = "" }) => {
+// 4. Card Description (Muted Text)
+export const CardDescription = ({ children, className = "", ...props }) => {
   return (
-    <p className={`text-gray-600 text-sm ${className}`}>
+    <p className={`text-sm text-gray-500 font-medium ${className}`} {...props}>
       {children}
     </p>
   );
 };
 
-// Card content wrapper
-export const CardContent = ({ children, className = "" }) => {
+// 5. Card Content Wrapper (Padding management)
+export const CardContent = ({ children, className = "", ...props }) => {
   return (
-    <div className={`mt-2 ${className}`}>
+    <div className={`p-6 md:p-8 pt-0 ${className}`} {...props}>
+      {children}
+    </div>
+  );
+};
+
+// Optional: Card Footer (Buttons management)
+export const CardFooter = ({ children, className = "", ...props }) => {
+  return (
+    <div className={`flex items-center p-6 md:p-8 pt-0 mt-auto ${className}`} {...props}>
       {children}
     </div>
   );

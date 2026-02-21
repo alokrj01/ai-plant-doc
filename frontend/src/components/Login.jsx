@@ -4,7 +4,7 @@ import { Button } from './ui/button.jsx';
 import { Input } from './ui/input.jsx';
 import { Label } from './ui/label.jsx';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card.jsx';
-import { Leaf, Eye, EyeOff } from 'lucide-react';
+import { Leaf, Eye, EyeOff, Mail, Lock, Loader2 } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 
 const Login = () => {
@@ -49,89 +49,131 @@ const Login = () => {
         });
       }
       setIsLoading(false);
-    }, 1000);
+    }, 1200);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <div className="bg-gradient-to-br from-green-600 to-emerald-600 p-3 rounded-full">
-              <Leaf className="h-8 w-8 text-white" />
+    <div className="relative min-h-screen flex items-center justify-center p-4 bg-gray-50 overflow-hidden">
+      
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-green-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute top-[20%] right-[-10%] w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div className="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+
+      <div className="relative w-full max-w-[420px] z-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex justify-center mb-5">
+            <div className="relative group cursor-pointer">
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-gradient-to-br from-green-500 to-emerald-600 p-4 rounded-full shadow-xl">
+                <Leaf className="h-8 w-8 text-white" />
+              </div>
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Plant Guard</h1>
-          <p className="text-gray-600">Advanced Plant Disease Detection</p>
+          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">PlantMitra AI</h1>
+          <p className="text-gray-500 font-medium tracking-wide">Advanced Plant Disease Detection</p>
         </div>
         
-        <Card className="backdrop-blur-sm bg-white/80 shadow-xl border-0">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl text-center text-gray-900">Welcome Back</CardTitle>
-            <CardDescription className="text-center text-gray-600">
-              Sign in to your Plant Guard account
-            </CardDescription>
+        <Card className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+          <CardHeader className="text-center items-center">
+            <CardTitle>Welcome Back</CardTitle>
+            <CardDescription>Sign in to your account to continue</CardDescription>
           </CardHeader>
+          
           <CardContent>
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="transition-all duration-200 focus:ring-2 focus:ring-green-500"
-                />
+            <form onSubmit={handleLogin} className="space-y-5">
+              
+              {/* Email Input */}
+              <div>
+                <Label htmlFor="email">Email Address</Label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
+                  </div>
+                  
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="pl-10"
+                  />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <div className="relative">
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <Label htmlFor="password" className="mb-0">Password</Label>
+                  <Link to="#" className="text-sm font-medium text-green-600 hover:text-green-700 hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
+                  </div>
                   <Input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
+                    placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="pr-10 transition-all duration-200 focus:ring-2 focus:ring-green-500"
+                    className="pl-10 pr-10"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors"
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
                   >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
                 </div>
               </div>
+
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transition-all duration-200 transform hover:scale-105"
+                className="w-full mt-2"
                 disabled={isLoading}
               >
-                {isLoading ? "Signing In..." : "Sign In"}
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Signing in...
+                  </>
+                ) : (
+                  "Sign In"
+                )}
               </Button>
             </form>
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
-                First time?{' '}
-                <Link 
-                  to="/register" 
-                  className="text-green-600 hover:text-green-700 font-medium hover:underline transition-colors"
-                >
-                  Please register here
-                </Link>
-              </p>
+            
+            {/* Footer Text */}
+            <div className="mt-8">
+              {/* Divider Line */}
+              <div className="relative">
+                
+                <div className="absolute inset-0 flex items-center pointer-events-none">
+                  <div className="w-full border-t border-gray-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white/95 text-gray-500">New to Plant Doc?</span>
+                </div>
+              </div>
+              
+              {/* Registration Link */}
+              <Link 
+                to="/register" 
+                className="mt-6 relative z-10 flex items-center justify-center w-full h-12 rounded-xl border-2 border-green-100 text-green-700 font-semibold hover:bg-green-50 hover:border-green-200 hover:scale-[0.98] transition-all duration-300"
+              >
+                Create an account
+              </Link>
             </div>
           </CardContent>
         </Card>
       </div>
-      
-      {/* Footer */}
-      {/* <Footer /> */}
     </div>
   );
 };

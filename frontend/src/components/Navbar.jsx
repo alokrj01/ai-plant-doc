@@ -8,11 +8,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // State to track if the user is authenticated
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
 
-  // Check authentication status when the component loads
   useEffect(() => {
     const authStatus = localStorage.getItem('isAuthenticated');
     if (authStatus) {
@@ -22,12 +20,9 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    // Clear all user-related data from local storage
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userName');
-
-    // Update the component's state
     setIsAuthenticated(false);
 
     toast({
@@ -35,57 +30,83 @@ const Navbar = () => {
       description: "You have been successfully logged out.",
     });
 
-    // Navigate to the main dashboard page after logout
     navigate('/');
   };
 
-
   return (
-    <nav className="sticky top-0 z-50 py-3">
-        <div className="container max-w-6xl mx-auto px-6 py-2 flex items-center justify-between bg-white/80 backdrop-blur-md shadow-lg rounded-xl border border-green-100">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-br from-green-600 to-emerald-600 p-2 rounded-lg">
-              <Leaf className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">PLANT DOC</h1>
-              <p className="text-xs text-gray-600">Disease Detection System</p>
-            </div>
+    // 1. Sticky Wrapper with padding for floating navbar 
+    <nav className="sticky top-0 z-50 w-full pt-4 px-4 pb-2">
+      
+      {/* 2. Floating Glassmorphism Island */}
+      <div className="mx-auto max-w-5xl bg-white/80 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-2xl px-5 py-3 flex items-center justify-between transition-all duration-300">
+        
+        {/* Logo Section */}
+        <Link to="/" className="flex items-center space-x-3 group cursor-pointer">
+          {/* Circular Modern Logo Icon */}
+          <div className="relative flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 shadow-md shadow-emerald-500/30 border-2 border-white/80 group-hover:shadow-lg group-hover:shadow-emerald-500/40 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-105">
+            <Leaf className="h-5 w-5 text-white relative z-10" />
+            
+            {/* Subtle hover glow inside the circle */}
+            <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
+          
+          {/* Typography */}
+          <div className="flex flex-col justify-center">
+            <span className="text-xl font-extrabold text-gray-900 tracking-tight leading-none mb-0.5 group-hover:text-green-700 transition-colors duration-300">
+              PlantMitra AI
+            </span>
+            <span className="text-[10px] font-bold text-green-600 uppercase tracking-wider">
+              Advanced Plant Disease Detection
+            </span>
+          </div>
+        </Link>
 
-          {/* User Section: Conditionally render based on authentication status */}
-          <div className="flex items-center space-x-4">
-            {isAuthenticated ? (
-              // If user IS Logged In
+        {/* User / Action Section */}
+        <div className="flex items-center space-x-2 md:space-x-4">
+          {isAuthenticated ? (
+            
+            // --- LOGGED IN STATE ---
             <>
-            <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
-              <User className="h-4 w-4" />
-              <span>{userName}</span>
-            </div>
-            <Button
-              onClick={handleLogout}
-              variant="outline"
-              size="sm"
-              className="flex items-center space-x-2 hover:bg-red-50 hover:border-red-200 hover:text-red-600 transition-all duration-200"
-            >
-              <LogOut className="h-4 w-4" />
-              <span className="hidden sm:inline">Logout</span>
-            </Button>
+              {/* User Profile Pill */}
+              <div className="hidden md:flex items-center space-x-2 bg-gray-50/80 border border-gray-100 px-3 py-1.5 rounded-full">
+                <div className="bg-green-100 p-1 rounded-full">
+                  <User className="h-3.5 w-3.5 text-green-700" />
+                </div>
+                <span className="text-sm font-semibold text-gray-700 tracking-wide">{userName}</span>
+              </div>
+              
+              {/* Modern Logout Button (Subtle Red) */}
+              <button
+                onClick={handleLogout}
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl text-sm font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200"
+              >
+                <LogOut className="h-4 w-4" />
+                <span className="hidden sm:inline">Logout</span>
+              </button>
             </>
-            ) : (
-              // If user is not Logged In
-              <>
-                <Link to="/login">
-                  <Button variant="ghost" size="sm" className="font-semibold text-green-700 bg-transparent hover:bg-green-100 shadow-none px-4 py-2 rounded-lg">Login</Button>
-                </Link>
-                <Link to="/register">
-                  <Button size="sm" className="font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-4 py-2 rounded-lg">Register</Button>
-                </Link>
-              </>
-            )}
-          </div>
+
+          ) : (
+
+            // --- LOGGED OUT STATE ---
+            <>
+              {/* Subtle Login Link */}
+              <Link 
+                to="/login" 
+                className="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-green-600 transition-colors"
+              >
+                Sign In
+              </Link>
+              
+              {/* Primary Register Button */}
+              <Link to="/register">
+                <Button className="h-10 px-6 text-sm">
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
+      </div>
     </nav>
   );
 };
