@@ -1,0 +1,7 @@
+myenv/
+venv/
+__pycache__/
+.git/
+.env
+*.pyc
+*.whl

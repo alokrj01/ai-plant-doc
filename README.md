@@ -1,72 +1,106 @@
-# 🌱 Plant Doc - Plant Disease Detection System
+<div align="center">
 
-A smart, AI-powered web application that helps gardeners and farmers diagnose plant diseases through image and text-based analysis.
+# 🌱 PlantMitra AI (formerly Plant Doc)
+**Intelligent Plant Disease Detection & Treatment System**
 
-![Plant Doc Screenshot](https://github.com/alokrj01/ai-plant-doc/blob/main/frontend/Screenshot%202025-10-09%20213110.png)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+
+A smart, AI-powered web application that empowers gardeners and farmers to diagnose plant diseases instantly through image and text-based analysis.
+
+![App Screenshot](https://github.com/alokrj01/ai-plant-doc/blob/main/frontend/Screenshot%202025-10-09%20213110.png)
+
+</div>
+
+<br />
+
+## 📑 Table of Contents
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+  - [📥 Model Setup (Crucial)](#-model-setup-crucial)
+  - [💻 Installation Steps](#-installation-steps)
 
 ---
 
 ## ✨ Features
 
-- **Text-Based Prediction:** Describe your plant's symptoms and get an AI-powered diagnosis.
-- **Image-Based Prediction:** Upload an image of a plant leaf to detect diseases instantly.
-- **Detailed Results:** Get a predicted disease name, confidence score, and description.
-- **Treatment Recommendations:** Receive immediate and long-term advice for treating the detected disease.
-- **Modern UI:** A clean, responsive, and user-friendly interface built with React and Tailwind CSS.
+- 📝 **Text-Based Prediction:** Describe your plant's symptoms and get an AI-powered diagnosis.
+- 📸 **Image-Based Prediction:** Upload an image of a plant leaf to detect diseases instantly.
+- 📊 **Detailed Results:** Get a predicted disease name, confidence score, and severity description.
+- 💊 **Treatment Recommendations:** Receive immediate and long-term advice for treating the detected disease.
+- 🎨 **Premium UI:** A clean, responsive, glassmorphic interface built with React and Tailwind CSS.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Vite, Tailwind CSS
-- **Backend:** Python, FastAPI
-- **Machine Learning:** PyTorch, Transformers, Scikit-learn
+<details>
+<summary><b>Click to expand technology details</b></summary>
+<br/>
+
+* **Frontend:** React.js, Vite, Tailwind CSS, Lucide Icons, React Router
+* **Backend:** Python, FastAPI, Uvicorn
+* **Machine Learning:** PyTorch, Transformers (HuggingFace), Scikit-learn
+* **Architecture:** Client-Server model with RESTful APIs
+
+</details>
 
 ---
 
-## 🚀 How to Run Locally
+## 🚀 Getting Started
 
 Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Python](https://www.python.org/downloads/) (v3.8 or higher)
+- Git
 
-- Node.js & npm
-- Python & pip
+### 📥 Model Setup (Crucial)
 
-## 📥 Model Setup
+> ⚠️ **IMPORTANT:** The machine learning models for this project are too large for GitHub and must be downloaded separately before running the backend.
 
-The machine learning models for this project are too large for GitHub and must be downloaded separately.
+1. **Download the Image Model:** [Get `cnn_model.pth` here](https://drive.google.com/file/d/1MXMz-hBrqbqKnczM486nkbkY2rbSzaiU/view?usp=sharing)
+2. **Download the Text Models:** - [Part 1 (Folder)](https://drive.google.com/drive/folders/1aqKHcEMsyzvO4ym0kHpsig3AoS1XOZ9L?usp=sharing)
+   - [Part 2 (File)](https://drive.google.com/file/d/1jZA8RYyh3S6iIzAWpEm90Rsk7mtgxhzP/view?usp=sharing)
+3. **Organize the Files:** Place them inside the `backend/` directory of this project.
 
-1.  **Download the models** from this link:
-    [**Download these files from Google Drive**](https://drive.google.com/file/d/1MXMz-hBrqbqKnczM486nkbkY2rbSzaiU/view?usp=sharing)
-    for text model (https://drive.google.com/drive/folders/1aqKHcEMsyzvO4ym0kHpsig3AoS1XOZ9L?usp=sharing) & (https://drive.google.com/file/d/1jZA8RYyh3S6iIzAWpEm90Rsk7mtgxhzP/view?usp=sharing)
+<details>
+<summary><b>📁 Click here to view the required Folder Structure</b></summary>
 
-2.  **Unzip the file** to get the `Models` folder.
-
-3.  **Place the `Models` folder** inside the `backend/` directory of this project.
-
-✔️ Your final folder structure should look like this:
+```text
 backend/
-├── Models/ <-- The folder you just downloaded and placed
-│ ├── cnn_model.pth
-│ └── best_model_text/
+├── Models/              <-- Create this folder if it doesn't exist
+│   ├── cnn_model.pth    <-- Place the downloaded image model here
+│   └── best_model_text/ <-- Place the text model files inside this folder
 └── main.py
 
-### 1. Clone the Repository
+### Installation
+
+1. Clone the Repository
 
 ````bash
 git clone [https://github.com/alokrj01/AI_Plant_Doc_Bot](https://github.com/alokrj01/AI_Plant_Doc_Bot)
-cd your-repo-name
+cd AI_Plant_Doc_Bot
+```
 
-### 2. Setup and run the Backend
+2. Setup and run the Backend
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-
-### 3. Setup and Run the frontend
+```
+3. Setup and Run the frontend
 ```bash
 cd frontend
 npm install
 npm run dev
-````
+```
+<div align="center">
+<p>Made with ❤️ by <a href="https://www.google.com/search?q=https://github.com/alokrj01">Alok Ranjan</a></p>
+</div>
+
