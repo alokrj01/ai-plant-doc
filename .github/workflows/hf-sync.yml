@@ -1,0 +1,28 @@
+name: Auto-Sync Backend to Hugging Face
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**' # 
+      - 'backend/**' # This action happens when new changes in backend
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # History for all Code
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git config --global user.email "bot@github.com"
+          git config --global user.name "GitHub Actions Bot"
+          
+          git subtree split --prefix backend -b hf-deploy
+          git push https://alokrj:$HF_TOKEN@huggingface.co/spaces/alokrj/plant-disease-backend hf-deploy:main --force
