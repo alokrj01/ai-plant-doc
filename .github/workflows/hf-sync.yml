@@ -5,8 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'backend/**' # 
-      - 'backend/**' # This action happens when new changes in backend
+      - "backend/**" # This action happens when new changes in backend
 
 jobs:
   deploy:
@@ -23,6 +22,7 @@ jobs:
         run: |
           git config --global user.email "bot@github.com"
           git config --global user.name "GitHub Actions Bot"
-          
+
           git subtree split --prefix backend -b hf-deploy
-          git push https://alokrj:$HF_TOKEN@huggingface.co/spaces/alokrj/plant-disease-backend hf-deploy:main --force
+          git branch -D hf-deploy 2>/dev/null || true
+          git subtree split --prefix backend -b hf-deploy
