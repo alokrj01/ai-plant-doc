@@ -9,4 +9,4 @@ app_port: 8000
 ---
 
 # PlantMitra AI Backend API
-This is the Dockerized FastAPI backend for the Plant Disease Detection system.
+This is the Dockerized FastAPI backend for the Advanced Plant Disease Detection system. 
