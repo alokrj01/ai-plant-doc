@@ -10,7 +10,7 @@
 
 A smart, AI-powered web application that empowers gardeners and farmers to diagnose plant diseases instantly through image and text-based analysis.
 
-![App Screenshot](https://github.com/alokrj01/ai-plant-doc/blob/main/frontend/Screenshot%202025-10-09%20213110.png)
+![App Screenshot](https://github.com/alokrj01/ai-plant-doc/blob/main/frontend/Screenshot%20from%202026-02-21%2015-00-29.png)
 
 </div>
 
@@ -86,8 +86,8 @@ backend/
 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/alokrj01/AI_Plant_Doc_Bot](https://github.com/alokrj01/AI_Plant_Doc_Bot)
-cd AI_Plant_Doc_Bot
+git clone [https://github.com/alokrj01/ai-plant-doc](https://github.com/alokrj01/ai-plant-doc)
+cd AI_Plant_Doc
 ```
 
 2. Setup and run the Backend
