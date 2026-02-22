@@ -55,7 +55,7 @@ const Navbar = () => {
             <span className="text-base sm:text-xl font-extrabold text-gray-900 tracking-tight leading-none mb-0.5 group-hover:text-green-700 transition-colors duration-300">
               PlantMitra AI
             </span>
-            {/* MAGIC FIX: Subtitle hidden on mobile, block on medium screens and up */}
+            {/* Subtitle hidden on mobile, block on medium screens and up */}
             <span className="hidden md:block text-[10px] font-bold text-green-600 uppercase tracking-wider">
               Advanced Plant Disease Detection
             </span>
