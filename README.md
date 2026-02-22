@@ -1,6 +1,7 @@
 <div align="center">
 
 # 🌱 PlantMitra AI (formerly Plant Doc)
+
 **Intelligent Plant Disease Detection & Treatment System**
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
@@ -17,6 +18,7 @@ A smart, AI-powered web application that empowers gardeners and farmers to diagn
 <br />
 
 ## 📑 Table of Contents
+
 - [✨ Features](#-features)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [🚀 Getting Started](#-getting-started)
@@ -41,10 +43,10 @@ A smart, AI-powered web application that empowers gardeners and farmers to diagn
 <summary><b>Click to expand technology details</b></summary>
 <br/>
 
-* **Frontend:** React.js, Vite, Tailwind CSS, Lucide Icons, React Router
-* **Backend:** Python, FastAPI, Uvicorn
-* **Machine Learning:** PyTorch, Transformers (HuggingFace), Scikit-learn
-* **Architecture:** Client-Server model with RESTful APIs
+- **Frontend:** React.js, Vite, Tailwind CSS, Lucide Icons, React Router
+- **Backend:** Python, FastAPI, Uvicorn
+- **Machine Learning:** PyTorch, Transformers (HuggingFace), Scikit-learn
+- **Architecture:** Client-Server model with RESTful APIs
 
 </details>
 
@@ -55,7 +57,9 @@ A smart, AI-powered web application that empowers gardeners and farmers to diagn
 Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
+
 Make sure you have the following installed:
+
 - [Node.js](https://nodejs.org/) (v18+ or higher)
 - [Python](https://www.python.org/downloads/) (v3.10+ or higher)
 - Git
@@ -79,6 +83,7 @@ backend/
 │   └── best_model_text/ <-- Place the text model files inside this folder
 └── main.py
 ```
+
 </details>
 
 ### Installation
@@ -86,23 +91,26 @@ backend/
 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/alokrj01/ai-plant-doc](https://github.com/alokrj01/ai-plant-doc)
-cd AI_Plant_Doc
+git clone https://github.com/alokrj01/ai-plant-doc
+cd ai-plant-doc
 ```
 
 2. Setup and run the Backend
+
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
+
 3. Setup and Run the frontend
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
+
 <div align="center">
 <p>Made with ❤️ by <a href="https://github.com/alokrj01">Alok Ranjan</a></p>
 </div>
-
