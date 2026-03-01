@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "backend/**" # This action happens when new changes in backend
+      - "backend/**" # This action happens when new changes happens in backend
 
 jobs:
   deploy:

@@ -20,7 +20,7 @@ Base.metadata.create_all(bind=engine)
 #Initialize FastAPI app
 app = FastAPI(title = "Image + Text Classification Model" )
 
-#Middleware for CORS
+#Middleware for CORS(cross origin resource sharing)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Allows all origins

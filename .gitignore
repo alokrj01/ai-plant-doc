@@ -2,6 +2,7 @@
 /frontend/node_modules
 /frontend/dist
 /frontend/.vite/
+/frontend/.env/
 
 # Backend dependencies and cache
 /backend/myenv/

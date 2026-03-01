@@ -281,7 +281,7 @@ def seed_db():
                 disease_name=value["disease"],
                 severity=value["severity"],
                 description=value["description"],
-                treatment=value["treatment"]  # SQLAlchemy handles dict to JSON if using JSON type
+                treatment=value["treatment"]  # SQLAlchemy handles dictionary to JSON if using JSON type
             )
             db.add(new_disease)
         

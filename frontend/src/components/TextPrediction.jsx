@@ -117,7 +117,7 @@ const TextPrediction = ({ onResult, onLoading }) => {
         {/* Symptoms Textarea */}
         <div>
           <Label htmlFor="symptoms">Symptoms Details</Label>
-          {/* Textarea.jsx already has all the modern styling now */}
+
           <Textarea
             id="symptoms"
             placeholder="E.g., yellow leaves, brown spots on the stem..."
@@ -127,7 +127,7 @@ const TextPrediction = ({ onResult, onLoading }) => {
           />
         </div>
         
-        {/* Modern Button */}
+        {/* Button */}
         <Button
           type="submit"
           className="w-full h-12 mt-2 text-sm"
