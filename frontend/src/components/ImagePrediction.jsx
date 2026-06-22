@@ -109,13 +109,14 @@ const ImagePrediction = ({ onResult, onLoading }) => {
         <div className="bg-green-100/50 p-2.5 rounded-full mb-1">
           <Camera className="h-5 w-5 text-green-600" />
         </div>
-        <h3 className="font-semibold text-gray-800 tracking-tight text-lg">Upload Leaf Image</h3>
-        <p className="text-xs text-gray-500">Provide a clear photo for AI analysis</p>
+        <h3 className="font-display font-semibold text-gray-800 tracking-tight text-lg">Upload Leaf Image</h3>
+        <p className="font-sans text-xs text-gray-500">Provide a clear photo for AI analysis</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <Label htmlFor="imageUpload">Plant Leaf Photo</Label>
+          <Label htmlFor="imageUpload"
+          className="font-sans font-medium text-slate-700">Plant Leaf Photo</Label>
 
           <div className="relative mt-1 group flex flex-col items-center justify-center w-full h-56 border-2 border-dashed border-gray-200 bg-gray-50/50 rounded-xl hover:border-green-400 hover:bg-green-50/30 transition-all duration-300 ease-in-out overflow-hidden">
             
@@ -136,10 +137,10 @@ const ImagePrediction = ({ onResult, onLoading }) => {
                   </button>
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-sm font-medium text-gray-700 truncate max-w-[200px]">
+                  <p className="font-sans text-sm font-medium text-gray-700 truncate max-w-[200px]">
                     {selectedImage.name}
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">
+                  <p className="font-mono text-xs text-gray-500 mt-0.5">
                     {(selectedImage.size / 1024).toFixed(1)} KB
                   </p>
                 </div>
@@ -149,10 +150,10 @@ const ImagePrediction = ({ onResult, onLoading }) => {
                 <div className="bg-white p-3 rounded-full shadow-sm border border-gray-100 mb-3 group-hover:scale-110 group-hover:bg-green-50 transition-all duration-300">
                   <ImageIcon className="h-6 w-6 text-gray-400 group-hover:text-green-500" />
                 </div>
-                <p className="mb-1 text-sm text-gray-600 font-medium">
-                  <span className="text-green-600 font-semibold group-hover:underline cursor-pointer">Click to upload</span> or drag and drop
+                <p className="font-sans mb-1 text-sm text-gray-600 font-medium">
+                  <span className="font-sans text-green-600 font-semibold group-hover:underline cursor-pointer">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-gray-500">PNG, JPG, JPEG up to 10MB</p>
+                <p className="font-mono text-xs text-gray-500">PNG, JPG, JPEG up to 10MB</p>
               </div>
             )}
             

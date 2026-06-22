@@ -52,11 +52,11 @@ const Navbar = () => {
           {/* Typography Section */}
           <div className="flex flex-col justify-center">
             {/* Title smaller on mobile (text-base) */}
-            <span className="text-base sm:text-xl font-extrabold text-gray-900 tracking-tight leading-none mb-0.5 group-hover:text-green-700 transition-colors duration-300">
+            <span className="font-display text-base sm:text-xl font-extrabold text-gray-900 tracking-tight leading-none mb-0.5 group-hover:text-green-700 transition-colors duration-300">
               PlantMitra AI
             </span>
             {/* Subtitle hidden on mobile, block on medium screens and up */}
-            <span className="hidden md:block text-[10px] font-bold text-green-600 uppercase tracking-wider">
+            <span className="font-display hidden md:block text-[10px] font-bold text-green-600 uppercase tracking-wider">
               Advanced Plant Disease Detection
             </span>
           </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 <div className="bg-green-100 p-1 rounded-full">
                   <User className="h-3.5 w-3.5 text-green-700" />
                 </div>
-                <span className="text-sm font-semibold text-gray-700 tracking-wide">{userName}</span>
+                <span className="font-sans text-sm font-semibold text-gray-700 tracking-wide">{userName}</span>
               </div>
               
               <button
@@ -94,7 +94,7 @@ const Navbar = () => {
               
               {/* Get Started Button responsive sizing */}
               <Link to="/register">
-                <Button className="h-8 px-3 text-xs sm:h-10 sm:px-6 sm:text-sm whitespace-nowrap">
+                <Button className="font-display h-8 px-3 text-xs sm:h-10 sm:px-6 sm:text-sm whitespace-nowrap">
                   Get Started
                 </Button>
               </Link>

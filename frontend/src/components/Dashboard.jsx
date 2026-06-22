@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   return (
     // 1. App Layout: Full screen height, flexbox for sticky footer, soft gray background
-    <div className="min-h-screen flex flex-col bg-slate-50 relative overflow-hidden text-slate-900">
+    <div className="min-h-screen flex flex-col bg-slate-50 relative overflow-hidden text-slate-900 font-sans">
       
       {/* 2. Ambient Background Glows (Premium Apple/Stripe Vibe) */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-300/20 rounded-full mix-blend-multiply filter blur-[100px] pointer-events-none"></div>
@@ -50,13 +50,13 @@ const Dashboard = () => {
         <div className="text-center max-w-4xl mx-auto mb-16 animate-in fade-in slide-in-from-bottom-6 duration-700">
           
           {/* AI Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-green-200 shadow-sm text-green-700 text-sm font-bold tracking-wide mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-green-200 shadow-sm text-green-700 text-sm font-bold tracking-wide mb-6 font-sans">
             <Sparkles className="w-4 h-4 text-green-500" />
             AI-Powered Diagnostics
           </div>
           
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.15]">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.15]">
             Protect Your Plants with <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
               Intelligent Vision
@@ -64,7 +64,7 @@ const Dashboard = () => {
           </h1>
           
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className=" font-sans text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Upload an image of a diseased leaf or describe the symptoms. Our advanced AI will instantly analyze the condition and provide a detailed treatment plan.
           </p>
         </div>
@@ -100,7 +100,7 @@ const Dashboard = () => {
             {/* Elegant Divider Title */}
             <div className="flex items-center justify-center mb-10 opacity-80">
               <Separator className="w-1/4 sm:w-1/3 bg-slate-200" />
-              <div className="px-4 sm:px-6 text-slate-500 font-bold tracking-widest uppercase text-xs sm:text-sm">
+              <div className="px-4 sm:px-6 text-slate-500 font-display font-bold tracking-widest uppercase text-xs sm:text-sm">
                 Analysis Report
               </div>
               <Separator className="w-1/4 sm:w-1/3 bg-slate-200" />

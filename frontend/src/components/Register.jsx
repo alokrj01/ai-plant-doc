@@ -127,15 +127,15 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">PlantMitra AI</h1>
-          <p className="text-gray-500 font-medium tracking-wide">Advanced Plant Disease Detection</p>
+          <h1 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight mb-2">PlantMitra AI</h1>
+          <p className="font-sans text-gray-500 font-medium tracking-wide">Advanced Plant Disease Detection</p>
         </div>
         
         {/* Register Card */}
         <Card className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
           <CardHeader className="text-center items-center">
-            <CardTitle>Create Account</CardTitle>
-            <CardDescription>Join Plant Doc to protect your plants</CardDescription>
+            <CardTitle className='font-display text-2xl'>Create Account</CardTitle>
+            <CardDescription className='font-sans'>Join PlantMitra AI to protect your plants</CardDescription>
           </CardHeader>
           
           <CardContent>
@@ -143,7 +143,8 @@ const Register = () => {
               
               {/* Full Name Input */}
               <div>
-                <Label htmlFor="fullName">Full Name</Label>
+                <Label htmlFor="fullName"
+                 className='font-sans font-medium text-slate-700'>Full Name</Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <User className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
@@ -156,14 +157,15 @@ const Register = () => {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
-                    className="pl-10"
+                    className="font-sans pl-10"
                   />
                 </div>
               </div>
               
               {/* Email Input */}
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email"
+                 className='font-sans font-medium text-slate-700'>Email Address</Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
@@ -172,18 +174,19 @@ const Register = () => {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="name@example.com"
+                    placeholder="farmer@example.com"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="pl-10"
+                    className="font-sans pl-10"
                   />
                 </div>
               </div>
               
               {/* Password Input */}
               <div>
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password"
+                 className='font-sans font-medium font-slate-700'>Password</Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
@@ -196,7 +199,7 @@ const Register = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     required
-                    className="pl-10 pr-10"
+                    className="font-sans pl-10 pr-10"
                   />
                   <button
                     type="button"
@@ -210,7 +213,8 @@ const Register = () => {
               
               {/* Confirm Password Input */}
               <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword"
+                 className='font-snas font-medium text-slate-700'>Confirm Password</Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
@@ -223,7 +227,7 @@ const Register = () => {
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
                     required
-                    className="pl-10 pr-10"
+                    className="font-sans pl-10 pr-10"
                   />
                   <button
                     type="button"
@@ -258,15 +262,15 @@ const Register = () => {
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white/95 text-gray-500">Already have an account?</span>
+                  <span className="font-sans px-2 bg-white/95 text-gray-500">Already have an account?</span>
                 </div>
               </div>
               
               <Link 
                 to="/login" 
-                className="mt-6 relative z-10 flex items-center justify-center w-full h-12 rounded-xl border-2 border-green-100 text-green-700 font-semibold hover:bg-green-50 hover:border-green-200 hover:scale-[0.98] transition-all duration-300"
+                className="font-display mt-6 relative z-10 flex items-center justify-center w-full h-12 rounded-xl border-2 border-green-100 text-green-700 font-semibold hover:bg-green-50 hover:border-green-200 hover:scale-[0.98] transition-all duration-300"
               >
-                Sign in here
+                Sign in
               </Link>
             </div>
             

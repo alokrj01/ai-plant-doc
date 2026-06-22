@@ -23,23 +23,23 @@ const Footer = () => {
                 <Leaf className="h-5 w-5 text-white relative z-10" />
               </div>
               <div>
-                <h3 className="text-xl font-extrabold text-white tracking-tight">PLANTMITRA AI</h3>
-                <p className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Disease Detection System</p>
+                <h3 className="font-display text-xl font-extrabold text-white tracking-tight">PlantMitra AI</h3>
+                <p className="font-sans text-xs font-semibold text-emerald-400 uppercase tracking-wider">Advanced Plant Disease Detection</p>
               </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Advanced AI-powered plant disease detection system. We empower gardeners and farmers to protect their crops with intelligent diagnosis and actionable treatment recommendations.
+            <p className="font-sans text-sm text-slate-300 leading-relaxed max-w-sm">
+              Advanced AI-powered plant Health Assistant. We empower gardeners and farmers to protect their crops with intelligent diagnosis and actionable treatment recommendations.
             </p>
           </div>
 
           {/* Features / Quick Links (Takes 3 columns) */}
           <div className="md:col-span-6 lg:col-span-3 space-y-6 lg:ml-auto">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Features</h4>
+            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">Features</h4>
             <ul className="space-y-3">
               {['Text-based Analysis', 'Image Recognition', 'Treatment Plans', 'User-friendly UI'].map((item, i) => (
                 <li key={i}>
                   {/* Smooth slide-in arrow on hover */}
-                  <a href="#" className="group flex items-center text-sm text-slate-300 hover:text-emerald-400 transition-colors duration-300">
+                  <a href="#" className="group flex items-center font-sans text-sm text-slate-300 hover:text-emerald-400 transition-colors duration-300">
                     <ChevronRight className="h-4 w-4 mr-1 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{item}</span>
                   </a>
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Plant Care Tips (Takes 4 columns) */}
           <div className="md:col-span-6 lg:col-span-4 space-y-6">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Plant Care Tips</h4>
+            <h4 className="font-display text-sm font-bold text-white uppercase tracking-wider">Plant Care Tips</h4>
             <ul className="space-y-4">
               {[
                 'Regular monitoring prevents disease',
@@ -60,7 +60,7 @@ const Footer = () => {
               ].map((item, i) => (
                 <li key={i} className="flex items-start group">
                   <Sprout className="h-4 w-4 mr-3 text-emerald-500/70 shrink-0 mt-0.5 group-hover:text-emerald-400 transition-colors" />
-                  <span className="text-sm text-slate-300 leading-tight group-hover:text-slate-300 transition-colors">{item}</span>
+                  <span className="font-sans text-sm text-slate-300 leading-tight group-hover:text-slate-300 transition-colors">{item}</span>
                 </li>
               ))}
             </ul>
@@ -74,14 +74,14 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 text-sm text-slate-500">
           
           {/* Copyright */}
-          <div className="flex items-center space-x-1">
-            <span>© {currentYear}</span>
-            <span className="text-slate-400 font-semibold">PLANTMITRA AI</span>
+          <div className="flex items-center space-x-1 font-sans">
+            <span className='font-mono'>© {currentYear}</span>
+            <span className="font-display text-slate-400 font-semibold">PlantMitra AI</span>
             <span>. All rights reserved.</span>
           </div>
 
           {/* Made with Love Badge */}
-          <div className="flex items-center space-x-2 bg-slate-900/80 px-4 py-2 rounded-full border border-slate-700/80 shadow-sm">
+          <div className="flex items-center space-x-2 bg-slate-900/80 px-4 py-2 rounded-full border border-slate-700/80 shadow-sm font-sans">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-rose-500 fill-rose-500 animate-pulse" />
             <span>for plant lovers</span>
@@ -89,9 +89,9 @@ const Footer = () => {
         </div>
         
         {/* Disclaimer */}
-        <div className="mt-10 text-center max-w-4xl mx-auto">
+        <div className="font-sans mt-10 text-center max-w-4xl mx-auto">
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            <strong classname="text-slate-300">Disclaimer:</strong> PlantMitra AI uses advanced machine learning algorithms to provide disease predictions. 
+            <strong className="font-display text-slate-300">Disclaimer:</strong> PlantMitra AI uses advanced machine learning algorithms to provide disease predictions. 
             While highly accurate, it should not replace professional agricultural advice. Always consult with 
             certified agronomists or agricultural experts for severe plant health issues.
           </p>

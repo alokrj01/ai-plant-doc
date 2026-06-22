@@ -72,14 +72,14 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">PlantMitra AI</h1>
-          <p className="text-gray-500 font-medium tracking-wide">Advanced Plant Disease Detection</p>
+          <h1 className="font-display text-4xl font-extrabold text-gray-900 tracking-tight mb-2">PlantMitra AI</h1>
+          <p className="font-sans text-gray-500 font-medium tracking-wide">Advanced Plant Disease Detection</p>
         </div>
         
         <Card className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
           <CardHeader className="text-center items-center">
-            <CardTitle>Welcome Back</CardTitle>
-            <CardDescription>Sign in to your account to continue</CardDescription>
+            <CardTitle className='font-display text-2xl'>Welcome Back</CardTitle>
+            <CardDescription className='font-sans'>Sign in to your account to continue</CardDescription>
           </CardHeader>
           
           <CardContent>
@@ -87,7 +87,8 @@ const Login = () => {
               
               {/* Email Input */}
               <div>
-                <Label htmlFor="email">Email Address</Label>
+                <Label htmlFor="email"
+                className='font-sans font-medium text-slate-700'>Email Address</Label>
                 <div className="relative group">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-green-500 transition-colors" />
@@ -96,18 +97,18 @@ const Login = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="name@example.com"
+                    placeholder="farmer@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="pl-10"
+                    className="font-sans pl-10"
                   />
                 </div>
               </div>
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <Label htmlFor="password" className="mb-0">Password</Label>
-                  <Link to="#" className="text-sm font-medium text-green-600 hover:text-green-700 hover:underline">
+                  <Label htmlFor="password" className="font-sans font-medium text-slate-700 mb-0">Password</Label>
+                  <Link to="#" className="font-sans text-sm font-medium text-green-600 hover:text-green-700 hover:underline">
                     Forgot password?
                   </Link>
                 </div>
@@ -122,7 +123,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="pl-10 pr-10"
+                    className="font-sans pl-10 pr-10 placeholder:font-mono"
                   />
                   <button
                     type="button"
@@ -136,7 +137,7 @@ const Login = () => {
 
               <Button
                 type="submit"
-                className="w-full mt-2"
+                className="w-full mt-2 font-semibold"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -159,14 +160,14 @@ const Login = () => {
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white/95 text-gray-500">New to Plant Doc?</span>
+                  <span className="font-sans px-2 bg-white/95 text-gray-500">New to PlantMitra AI?</span>
                 </div>
               </div>
               
               {/* Registration Link */}
               <Link 
                 to="/register" 
-                className="mt-6 relative z-10 flex items-center justify-center w-full h-12 rounded-xl border-2 border-green-100 text-green-700 font-semibold hover:bg-green-50 hover:border-green-200 hover:scale-[0.98] transition-all duration-300"
+                className="font-display mt-6 relative z-10 flex items-center justify-center w-full h-12 rounded-xl border-2 border-green-100 text-green-700 font-semibold hover:bg-green-50 hover:border-green-200 hover:scale-[0.98] transition-all duration-300"
               >
                 Create an account
               </Link>
