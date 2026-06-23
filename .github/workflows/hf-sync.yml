@@ -12,17 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # History for all Code
 
-      - name: Push to Hugging Face Space
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Create Backend Branch
+        run: |
+          git branch -D hf-deploy 2>/dev/null || true
+          git subtree split --prefix backend -b hf-deploy
+
+      - name: Push Backend to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global user.email "bot@github.com"
-          git config --global user.name "GitHub Actions Bot"
-
-          git subtree split --prefix backend -b hf-deploy
-          git branch -D hf-deploy 2>/dev/null || true
-          git subtree split --prefix backend -b hf-deploy
+          git push --force https://alokrj:${HF_TOKEN}@huggingface.co/spaces/alokrj/plant-disease-backend hf-deploy:main
+          
