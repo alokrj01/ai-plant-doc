@@ -71,6 +71,21 @@ idx_to_class = {0: 'Pepper__bell___Bacterial_spot',
                 14: 'Tomato_healthy'}
 
 #API Route
+@app.get("/")
+def health_check():
+   return {
+      "message": "🌱 Plant Mitra AI Backend is Running",
+      "service": "Plant Disease Detection API",
+      "status": "healthy",
+      "available_endpoints": [
+         "/image-prediction",
+         "/text-prediction",
+         "/docs"
+      ]
+   }
+
+
+#API Route
 @app.post("/image-prediction")
 def image_predict(file: UploadFile = File(...), db: Session = Depends(get_db)):
 
@@ -83,7 +98,7 @@ def image_predict(file: UploadFile = File(...), db: Session = Depends(get_db)):
   with torch.inference_mode():
     output_tensor = model(img_tensor)
     probabilities = torch.softmax(output_tensor, dim=1) #prediction probabilities using softmax
-    pred_idx = torch.argmax(output_tensor, dim=1).item() #Get the prediction class index
+    pred_idx = int(torch.argmax(output_tensor, dim=1).item()) #Get the prediction class index
 
     #1. Class Name
     pred_label = idx_to_class[pred_idx] #Get the prediction class label
@@ -133,7 +148,7 @@ class TextInput(BaseModel):
   
 #API Route
 @app.post("/text-prediction")
-def predict_text(data: TextInput, db: Session = Depends(get_db)):
+def text_predict(data: TextInput, db: Session = Depends(get_db)):
   inputs = tokenizer(data.text, return_tensors="pt", truncation=True, padding=True) #tokenize the texts
   with torch.inference_mode():
     outputs = text_model(**inputs)
